@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* Local Sen Font Declarations */
+@font-face {
+  font-family: 'Sen';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/Sen-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sen';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/Sen-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sen';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./assets/fonts/Sen-ExtraBold.woff') format('woff');
+}
+
+:root {
+  /* Font Families */
+  --font-primary: 'Sen', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Sen', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Color Palette */
+  --color-bg-main: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-bg-tertiary: #3a3a3a;
+  --color-gradient-hero: radial-gradient(circle at 30% 40%, rgba(255, 193, 7, 0.3) 0%, rgba(0, 0, 0, 0.8) 70%);
+  --color-accent-yellow: #ffc107;
+  --color-accent-green: #4caf50;
+  --color-accent-cyan: #00bcd4;
+  --color-accent-teal: #009688;
+  --color-accent-purple: #673ab7;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b3b3b3;
+  --color-text-muted: #808080;
+  --color-card-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  --color-card-border: rgba(59, 130, 246, 0.2);
+  --color-card-hover: rgba(59, 130, 246, 0.1);
+  --color-btn-primary-bg: #ffc107;
+  --color-btn-primary-text: #000000;
+  --color-btn-primary-hover: #ffb300;
+  --color-btn-secondary-bg: transparent;
+  --color-btn-secondary-border: #00bcd4;
+  --color-btn-secondary-text: #00bcd4;
+  --color-btn-secondary-hover: rgba(0, 188, 212, 0.1);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Effects */
+  --blur-backdrop: blur(20px);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 16px 64px rgba(0, 0, 0, 0.4);
+  --shadow-button: 0 4px 16px rgba(255, 193, 7, 0.3);
+  --glow-accent: 0 0 20px rgba(0, 188, 212, 0.5);
+}
+
+html, body {
+  font-family: var(--font-primary);
+  background: var(--color-bg-main);
+  color: var(--color-text-primary);
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.hero-gradient {
+  background: var(--color-gradient-hero);
+}
+
+.card-bg {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: var(--blur-backdrop);
+}
+
+.card-bg:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+
+
+a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-accent-yellow);
+}
+
+
+/* Utility for accent glow */
+.accent-glow {
+  box-shadow: var(--glow-accent);
+}
+
+/* Font loading verification */
+.font-sen-loaded {
+  font-family: 'Sen', sans-serif !important;
+}
+
+/* Force Sen font for debugging */
+.force-sen {
+  font-family: 'Sen' !important;
+}
