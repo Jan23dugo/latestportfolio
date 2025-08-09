@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Import tech icons for project cards
 import reactIcon from '../assets/icons/react.svg';
@@ -21,14 +22,14 @@ import streamsHomepage from '../assets/projects/streams/homepage.png';
 const projects = [
   {
     id: 1,
-    title: "STREAMS - STUDENT REGISTRATION, EXAMINATION, AND MANAGEMENT SYSTEM PORTAL",
-    description: "Revolutionary Software-as-a-Service platform that uses advanced AI-powered features like text-to-multiple-voices functionality to generate diverse voiceovers from a single text input. Built with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex for optimal performance and scalability.",
+    title: "STREAMS",
+    description: "STREAMS is a web-based platform developed for the Polytechnic University of the Philippines – College of Computer and Information Sciences to digitize and streamline the registration, administration, and evaluation of qualifying examinations. It features OCR-powered document processing for extracting academic data from transcripts, secure on-site exam access via IP restriction, and a robust admin portal equipped with two-factor authentication, a question bank, analytics, and comprehensive exam management tools.",
     technologies: [
-      { name: 'PHP', icon: phpIcon, color: '#61DAFB' },
-      { name: 'MySQL', icon: mysqlIcon, color: '#06B6D4' },
-      { name: 'HTML', icon: htmlIcon, color: '#3178C6' },
-      { name: 'CSS', icon: cssIcon, color: '#8B5CF6' },
-      { name: 'JavaScript', icon: javascriptIcon, color: '#8B5CF6' },
+      { name: 'PHP', icon: phpIcon, color: '#777BB4', filter: 'brightness(0) saturate(100%) invert(51%) sepia(12%) saturate(2264%) hue-rotate(214deg) brightness(97%) contrast(95%)' },
+      { name: 'MySQL', icon: mysqlIcon, color: '#4479A1', filter: 'brightness(0) saturate(100%) invert(34%) sepia(55%) saturate(1464%) hue-rotate(197deg) brightness(94%) contrast(92%)' },
+      { name: 'HTML', icon: htmlIcon, color: '#E34F26', filter: 'brightness(0) saturate(100%) invert(35%) sepia(95%) saturate(1464%) hue-rotate(355deg) brightness(100%) contrast(97%)' },
+      { name: 'CSS', icon: cssIcon, color: '#1572B6', filter: 'brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(1566%) hue-rotate(197deg) brightness(97%) contrast(97%)' },
+      { name: 'JavaScript', icon: javascriptIcon, color: '#F7DF1E', filter: 'brightness(0) saturate(100%) invert(83%) sepia(83%) saturate(2496%) hue-rotate(2deg) brightness(101%) contrast(102%)' },
     ],
     liveUrl: "#",
     images: [
@@ -40,13 +41,13 @@ const projects = [
   },
   {
     id: 2,
-    title: "Website Portfolio with Admin",
+    title: "Dynamic Portfolio Website with Admin Panel",
     description: "Full-stack e-commerce solution with real-time inventory management, secure payment processing, and responsive design. Features include user authentication, product catalog, shopping cart, and admin dashboard.",
     technologies: [
-      { name: 'React', icon: reactIcon, color: '#61DAFB' },
-      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6' },
-      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4' },
-      { name: 'Node.js', icon: reactIcon, color: '#339933' }
+      { name: 'React', icon: reactIcon, color: '#61DAFB', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' },
+      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6', filter: 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(212deg) brightness(97%) contrast(86%)' },
+      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4', filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1206%) hue-rotate(164deg) brightness(95%) contrast(84%)' },
+      { name: 'Node.js', icon: reactIcon, color: '#339933', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' }
     ],
     liveUrl: "#",
     images: [
@@ -61,10 +62,10 @@ const projects = [
     title: "Promotional Game Website",
     description: "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Includes project tracking, deadline management, and progress analytics.",
     technologies: [
-      { name: 'React', icon: reactIcon, color: '#61DAFB' },
-      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6' },
-      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4' },
-      { name: 'Firebase', icon: reactIcon, color: '#FFCA28' }
+      { name: 'React', icon: reactIcon, color: '#61DAFB', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' },
+      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6', filter: 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(212deg) brightness(97%) contrast(86%)' },
+      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4', filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1206%) hue-rotate(164deg) brightness(95%) contrast(84%)' },
+      { name: 'Firebase', icon: reactIcon, color: '#FFCA28', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' }
     ],
     liveUrl: "#",
     images: [
@@ -77,6 +78,7 @@ const projects = [
 ];
 
 const Project: React.FC = () => {
+  const navigate = useNavigate();
   const [currentProject, setCurrentProject] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -145,30 +147,30 @@ const Project: React.FC = () => {
                <div className="flex items-center gap-3">
                  {currentProjectData.technologies.map((tech, index) => (
                    <div key={index} className="flex items-center gap-1">
-                     <img 
-                       src={tech.icon} 
-                       alt={tech.name} 
-                       className="w-5 h-5"
-                       style={{ 
-                         filter: `brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)`
-                       }}
-                     />
+                                           <img 
+                        src={tech.icon} 
+                        alt={tech.name} 
+                        className="w-5 h-5"
+                        style={{ 
+                          filter: tech.filter
+                        }}
+                      />
                    </div>
                  ))}
                </div>
 
                {/* Live Site Link */}
-               <div className="flex items-center gap-2">
-                 <a 
-                   href={currentProjectData.liveUrl}
-                   className="text-white/80 hover:text-white transition-colors font-sen flex items-center gap-2 group text-sm"
-                 >
-                   View More Details
-                                       <span className="text-lg transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                               <div className="flex items-center gap-2">
+                  <button 
+                    onClick={() => navigate(`/project/${currentProjectData.id}`)}
+                    className="text-white/80 hover:text-white transition-colors font-sen flex items-center gap-2 group text-sm"
+                  >
+                    View More Details
+                    <span className="text-lg transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                       ↗
                     </span>
-                 </a>
-               </div>
+                  </button>
+                </div>
              </div>
 
                                        {/* Navigation Controls */}
