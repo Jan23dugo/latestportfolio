@@ -1,60 +1,47 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// Import tech icons for project cards
-import reactIcon from '../assets/icons/react.svg';
-import typescriptIcon from '../assets/icons/typescript.svg';
-import tailwindIcon from '../assets/icons/tailwind.svg';
-import javascriptIcon from '../assets/icons/javascript.svg';
-import htmlIcon from '../assets/icons/html5.svg';
-import cssIcon from '../assets/icons/css.svg';
-import phpIcon from '../assets/icons/php.svg';
-import mysqlIcon from '../assets/icons/mysql.svg';
-
-// Import project images
-import streamsStudentWelcome from '../assets/projects/streams/studentWelcome.png';
-import streamsAdminLogin from '../assets/projects/streams/adminLogin.png';
-import streamsStudentLogin from '../assets/projects/streams/studentLogin.png';
-import streamsHomepage from '../assets/projects/streams/homepage.png';
+import { techStack, projects } from '../assets';
 
 
-
-const projects = [
+const projectsData = [
   {
     id: 1,
     title: "STREAMS",
     description: "STREAMS is a web-based platform developed for the Polytechnic University of the Philippines – College of Computer and Information Sciences to digitize and streamline the registration, administration, and evaluation of qualifying examinations. It features OCR-powered document processing for extracting academic data from transcripts, secure on-site exam access via IP restriction, and a robust admin portal equipped with two-factor authentication, a question bank, analytics, and comprehensive exam management tools.",
     technologies: [
-      { name: 'PHP', icon: phpIcon, color: '#777BB4', filter: 'brightness(0) saturate(100%) invert(51%) sepia(12%) saturate(2264%) hue-rotate(214deg) brightness(97%) contrast(95%)' },
-      { name: 'MySQL', icon: mysqlIcon, color: '#4479A1', filter: 'brightness(0) saturate(100%) invert(34%) sepia(55%) saturate(1464%) hue-rotate(197deg) brightness(94%) contrast(92%)' },
-      { name: 'HTML', icon: htmlIcon, color: '#E34F26', filter: 'brightness(0) saturate(100%) invert(35%) sepia(95%) saturate(1464%) hue-rotate(355deg) brightness(100%) contrast(97%)' },
-      { name: 'CSS', icon: cssIcon, color: '#1572B6', filter: 'brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(1566%) hue-rotate(197deg) brightness(97%) contrast(97%)' },
-      { name: 'JavaScript', icon: javascriptIcon, color: '#F7DF1E', filter: 'brightness(0) saturate(100%) invert(83%) sepia(83%) saturate(2496%) hue-rotate(2deg) brightness(101%) contrast(102%)' },
+      techStack.php,
+      techStack.mysql,
+      techStack.html,
+      techStack.css,
+      techStack.javascript,
     ],
     liveUrl: "#",
     images: [
-      streamsHomepage,
-      streamsStudentWelcome,
-      streamsAdminLogin,
-      streamsStudentLogin
+      projects.streams.homepage,
+      projects.streams.studentWelcome,
+      projects.streams.adminLogin,
+      projects.streams.studentLogin
     ]
   },
   {
     id: 2,
     title: "Dynamic Portfolio Website with Admin Panel",
-    description: "Full-stack e-commerce solution with real-time inventory management, secure payment processing, and responsive design. Features include user authentication, product catalog, shopping cart, and admin dashboard.",
+    description: "This project is a responsive one-page portfolio website designed to showcase personal projects, skills, and achievements in a clean, modern layout. It features an integrated admin panel that allows the site owner to easily update content, such as project details, images, and descriptions without any coding knowledge. Powered by Supabase as the backend, the system ensures secure data storage and enables real-time content updates, so any changes made through the admin panel are instantly reflected on the live website.",
     technologies: [
-      { name: 'React', icon: reactIcon, color: '#61DAFB', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' },
-      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6', filter: 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(212deg) brightness(97%) contrast(86%)' },
-      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4', filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1206%) hue-rotate(164deg) brightness(95%) contrast(84%)' },
-      { name: 'Node.js', icon: reactIcon, color: '#339933', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' }
+      techStack.react,
+      techStack.javascript,
+      techStack.css,
+      techStack.html,
+      techStack.supabase
     ],
     liveUrl: "#",
     images: [
-      streamsHomepage,
-      streamsStudentWelcome,
-      streamsAdminLogin,
-      streamsStudentLogin
+      projects.web_portfolio.homepage,
+      projects.web_portfolio.adminLogin,
+      projects.web_portfolio.aboutSection,
+      projects.web_portfolio.aboutSection2,
+      projects.web_portfolio.servicesSection,
+      projects.web_portfolio.resultsSection,
     ]
   },
   {
@@ -62,17 +49,17 @@ const projects = [
     title: "Promotional Game Website",
     description: "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Includes project tracking, deadline management, and progress analytics.",
     technologies: [
-      { name: 'React', icon: reactIcon, color: '#61DAFB', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' },
-      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6', filter: 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(212deg) brightness(97%) contrast(86%)' },
-      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4', filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1206%) hue-rotate(164deg) brightness(95%) contrast(84%)' },
-      { name: 'Firebase', icon: reactIcon, color: '#FFCA28', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' }
+      techStack.react,
+      techStack.typescript,
+      techStack.tailwind,
+      techStack.react // Using react icon as placeholder for Firebase until you add a Firebase icon
     ],
     liveUrl: "#",
     images: [
-      streamsHomepage,
-      streamsStudentWelcome,
-      streamsAdminLogin,
-      streamsStudentLogin
+      projects.streams.homepage,
+      projects.streams.studentWelcome,
+      projects.streams.adminLogin,
+      projects.streams.studentLogin
     ]
   }
 ];
@@ -83,12 +70,12 @@ const Project: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
+    setCurrentProject((prev) => (prev + 1) % projectsData.length);
     setCurrentImageIndex(0); // Reset image index when changing projects
   };
 
   const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentProject((prev) => (prev - 1 + projectsData.length) % projectsData.length);
     setCurrentImageIndex(0); // Reset image index when changing projects
   };
 
@@ -97,7 +84,7 @@ const Project: React.FC = () => {
     setCurrentImageIndex(0); // Reset image index when changing projects
   };
 
-  const currentProjectData = projects[currentProject];
+  const currentProjectData = projectsData[currentProject];
 
   // Auto-advance images every 3 seconds
   React.useEffect(() => {
@@ -128,7 +115,7 @@ const Project: React.FC = () => {
 
         {/* Project Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                     {/* Left: Project Details */}
+          {/* Left: Project Details */}
            <div className="space-y-6 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
          
             {/* Project Title */}
@@ -186,7 +173,7 @@ const Project: React.FC = () => {
 
                 {/* Dots */}
                 <div className="flex gap-2">
-                  {projects.map((_, index) => (
+                  {projectsData.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToProject(index)}

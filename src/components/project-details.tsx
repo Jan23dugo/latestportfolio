@@ -1,28 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
-// Import tech icons
-import reactIcon from '../assets/icons/react.svg';
-import typescriptIcon from '../assets/icons/typescript.svg';
-import tailwindIcon from '../assets/icons/tailwind.svg';
-import javascriptIcon from '../assets/icons/javascript.svg';
-import htmlIcon from '../assets/icons/html5.svg';
-import cssIcon from '../assets/icons/css.svg';
-import phpIcon from '../assets/icons/php.svg';
-import mysqlIcon from '../assets/icons/mysql.svg';
-
-// Import project images
-import streamsStudentWelcome from '../assets/projects/streams/studentWelcome.png';
-import streamsAdminLogin from '../assets/projects/streams/adminLogin.png';
-import streamsStudentLogin from '../assets/projects/streams/studentLogin.png';
-import streamsHomepage from '../assets/projects/streams/homepage.png';
+import { techStack, projects } from '../assets';
 
 // Project data (should match your main project data)
 const projectsData = [
   {
     id: 1,
     title: "STREAMS - STUDENT REGISTRATION, EXAMINATION, AND MANAGEMENT SYSTEM PORTAL",
-    fullDescription: "STREAMS (Student Registration, Examination, and Management System) is a comprehensive web-based portal designed to streamline academic operations for educational institutions. This full-stack application provides separate interfaces for students and administrators, ensuring secure and efficient management of academic processes.\n\nKey features include:\n• Student registration and profile management\n• Examination scheduling and management\n• Grade tracking and reporting\n• Administrative dashboard with analytics\n• Secure authentication system\n• Responsive design for all devices\n\nThe system was built using modern web technologies including PHP for backend logic, MySQL for robust data management, and a responsive frontend using HTML5, CSS3, and JavaScript. The application follows best practices for security, including input validation, SQL injection prevention, and secure session management.",
     overview: {
       role: "Full Stack Developer",
       timeline: "2025",
@@ -30,11 +14,11 @@ const projectsData = [
       description: "STREAMS is a web-based platform developed for the Polytechnic University of the Philippines – College of Computer and Information Sciences to digitize and streamline the registration, administration, and evaluation of qualifying examinations. It features OCR-powered document processing for extracting academic data from transcripts, secure on-site exam access via IP restriction, and a robust admin portal equipped with two-factor authentication, a question bank, analytics, and comprehensive exam management tools."
     },
     technologies: [
-      { name: 'PHP', icon: phpIcon, color: '#777BB4', filter: 'brightness(0) saturate(100%) invert(51%) sepia(12%) saturate(2264%) hue-rotate(214deg) brightness(97%) contrast(95%)' },
-      { name: 'MySQL', icon: mysqlIcon, color: '#4479A1', filter: 'brightness(0) saturate(100%) invert(34%) sepia(55%) saturate(1464%) hue-rotate(197deg) brightness(94%) contrast(92%)' },
-      { name: 'HTML', icon: htmlIcon, color: '#E34F26', filter: 'brightness(0) saturate(100%) invert(35%) sepia(95%) saturate(1464%) hue-rotate(355deg) brightness(100%) contrast(97%)' },
-      { name: 'CSS', icon: cssIcon, color: '#1572B6', filter: 'brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(1566%) hue-rotate(197deg) brightness(97%) contrast(97%)' },
-      { name: 'JavaScript', icon: javascriptIcon, color: '#F7DF1E', filter: 'brightness(0) saturate(100%) invert(83%) sepia(83%) saturate(2496%) hue-rotate(2deg) brightness(101%) contrast(102%)' },
+      techStack.php,
+      techStack.mysql,
+      techStack.html,
+      techStack.css,
+      techStack.javascript,
     ],
     features: [
       "Automated Document Processing – Eliminates manual TOR data entry through Azure-powered OCR.",
@@ -57,10 +41,10 @@ const projectsData = [
     liveUrl: "https://pupstreams.website/",
     githubUrl: "#",
     images: [
-      streamsHomepage,
-      streamsStudentWelcome,
-      streamsAdminLogin,
-      streamsStudentLogin
+      projects.streams.homepage,
+      projects.streams.studentWelcome,
+      projects.streams.adminLogin,
+      projects.streams.studentLogin
     ],
     duration: "3 months",
     role: "Full-Stack Developer",
@@ -69,49 +53,43 @@ const projectsData = [
   {
     id: 2,
     title: "Website Portfolio with Admin",
-    description: "Full-stack portfolio website with comprehensive admin panel for content management, featuring modern design and real-time updates.",
-    fullDescription: "A sophisticated portfolio website built with modern web technologies, featuring a comprehensive admin panel for dynamic content management. This project showcases advanced frontend development skills with React and TypeScript, combined with a robust backend system.\n\nThe portfolio includes:\n• Dynamic project showcase with image galleries\n• Admin dashboard for content management\n• Real-time content updates\n• Contact form with email integration\n• SEO optimization\n• Performance optimization\n• Mobile-first responsive design\n\nBuilt with a focus on performance, accessibility, and user experience, this portfolio demonstrates proficiency in modern web development practices and tools.",
     overview: {
       role: "Full Stack Developer",
-      timeline: "2024",
+      timeline: "2025",
       status: "Completed",
-      description: "A sophisticated portfolio website built with modern web technologies, featuring a comprehensive admin panel for dynamic content management. This project showcases advanced frontend development skills with React and TypeScript, combined with a robust backend system."
+      description: "This project is a responsive one-page portfolio website designed to showcase personal projects, skills, and achievements in a clean, modern layout. It features an integrated admin panel that allows the site owner to easily update content—such as project details, images, and descriptions—without any coding knowledge. Powered by Supabase as the backend, the system ensures secure data storage and enables real-time content updates, so any changes made through the admin panel are instantly reflected on the live website."
     },
     technologies: [
-      { name: 'React', icon: reactIcon, color: '#61DAFB', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' },
-      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6', filter: 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(212deg) brightness(97%) contrast(86%)' },
-      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4', filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1206%) hue-rotate(164deg) brightness(95%) contrast(84%)' },
-      { name: 'Node.js', icon: reactIcon, color: '#339933', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' }
+      techStack.react,
+      techStack.javascript,
+      techStack.css,
+      techStack.html,
+      techStack.supabase
     ],
     features: [
-      "Dynamic Content Management",
-      "Admin Dashboard",
-      "Real-time Updates",
-      "Contact Form Integration",
-      "SEO Optimization",
-      "Performance Optimization",
-      "Responsive Design",
-      "Component-based Architecture"
-    ],
-         challenges: [
-       "Implementing real-time content updates without page refresh",
-       "Creating a user-friendly admin interface",
-       "Optimizing performance for fast loading times",
-       "Ensuring accessibility compliance"
-     ],
-     solutions: [
-       "Implemented WebSocket connections for real-time updates and notifications",
-       "Designed intuitive admin panel with drag-and-drop content management",
-       "Used code splitting, lazy loading, and image optimization techniques",
-       "Followed WCAG guidelines and implemented proper ARIA labels"
+      "One-page portfolio layout — clean and professional design.",
+      "Admin panel — full content management without touching the code.",
+      "Supabase backend — scalable, secure, and API-driven data handling.",
+      "Dynamic rendering — portfolio content updates instantly after edits.",
+            "Authentication — secure owner-only access to admin tools."
      ],
     liveUrl: "#",
     githubUrl: "#",
     images: [
-      streamsHomepage,
-      streamsStudentWelcome,
-      streamsAdminLogin,
-      streamsStudentLogin
+      projects.web_portfolio.homepage,
+      projects.web_portfolio.adminLogin,
+      projects.web_portfolio.aboutSection,
+      projects.web_portfolio.aboutSection2,
+      projects.web_portfolio.servicesSection,
+      projects.web_portfolio.projectsSection,
+      projects.web_portfolio.projectsSection2,
+      projects.web_portfolio.resultsSection,
+      projects.web_portfolio.toolsSection,
+      projects.web_portfolio.homeContent,
+      
+      
+
+
     ],
     duration: "2 months",
     role: "Full-Stack Developer",
@@ -120,8 +98,6 @@ const projectsData = [
   {
     id: 3,
     title: "Promotional Game Website",
-    description: "Interactive promotional website for a mobile game, featuring engaging animations, user registration, and real-time statistics.",
-    fullDescription: "An engaging promotional website designed to showcase and promote a mobile game, featuring interactive elements, smooth animations, and real-time user engagement tracking. The project combines creative design with functional features to create an immersive user experience.\n\nKey highlights include:\n• Interactive game previews and screenshots\n• User registration for beta testing\n• Real-time download statistics\n• Social media integration\n• Newsletter subscription system\n• Mobile-optimized gaming experience\n• Analytics dashboard for marketing insights\n\nThe website serves as both a marketing tool and a community hub for game enthusiasts, demonstrating skills in creating engaging, conversion-focused web experiences.",
     overview: {
       role: "Frontend Developer",
       timeline: "2024",
@@ -129,10 +105,9 @@ const projectsData = [
       description: "An engaging promotional website designed to showcase and promote a mobile game, featuring interactive elements, smooth animations, and real-time user engagement tracking. The project combines creative design with functional features to create an immersive user experience."
     },
     technologies: [
-      { name: 'React', icon: reactIcon, color: '#61DAFB', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' },
-      { name: 'TypeScript', icon: typescriptIcon, color: '#3178C6', filter: 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(212deg) brightness(97%) contrast(86%)' },
-      { name: 'Tailwind', icon: tailwindIcon, color: '#06B6D4', filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1206%) hue-rotate(164deg) brightness(95%) contrast(84%)' },
-      { name: 'Firebase', icon: reactIcon, color: '#FFCA28', filter: 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1190%) hue-rotate(169deg) brightness(101%) contrast(97%)' }
+      techStack.react,
+      techStack.typescript,
+      techStack.tailwind,
     ],
     features: [
       "Interactive Game Previews",
@@ -159,10 +134,10 @@ const projectsData = [
     liveUrl: "#",
     githubUrl: "#",
     images: [
-      streamsHomepage,
-      streamsStudentWelcome,
-      streamsAdminLogin,
-      streamsStudentLogin
+      projects.streams.homepage,
+      projects.streams.studentWelcome,
+      projects.streams.adminLogin,
+      projects.streams.studentLogin
     ],
     duration: "1.5 months",
     role: "Frontend Developer",
@@ -174,6 +149,7 @@ const ProjectDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const thumbnailsRef = useRef<HTMLDivElement>(null);
 
   // Find the project by ID
   const project = projectsData.find(p => p.id === parseInt(id || '1'));
@@ -204,6 +180,29 @@ const ProjectDetails: React.FC = () => {
 
   const goToImage = (index: number) => {
     setCurrentImageIndex(index);
+  };
+
+  const scrollThumbnails = (direction: 'left' | 'right') => {
+    if (!thumbnailsRef.current) return;
+    
+    // Calculate scroll amount based on thumbnail width + gap (80px + 12px gap = 92px per thumbnail)
+    const thumbnailWidth = 92;
+    const visibleThumbnails = Math.floor(thumbnailsRef.current.clientWidth / thumbnailWidth);
+    const scrollAmount = thumbnailWidth * Math.max(1, visibleThumbnails - 1);
+    
+    const currentScroll = thumbnailsRef.current.scrollLeft;
+    
+    if (direction === 'left') {
+      thumbnailsRef.current.scrollTo({
+        left: Math.max(0, currentScroll - scrollAmount),
+        behavior: 'smooth'
+      });
+    } else {
+      thumbnailsRef.current.scrollTo({
+        left: currentScroll + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -244,7 +243,7 @@ const ProjectDetails: React.FC = () => {
               <h2 className="text-2xl font-bold text-white mb-4 font-display">Project Gallery</h2>
               
               {/* Main Image */}
-              <div className="relative h-96 overflow-hidden rounded-lg mb-4">
+              <div className="relative h-96 overflow-hidden rounded-lg mb-0">
                 {project.images.map((image, index) => (
                   <img
                     key={index}
@@ -265,24 +264,52 @@ const ProjectDetails: React.FC = () => {
               </div>
 
               {/* Thumbnail Navigation */}
-              <div className="grid grid-cols-4 gap-2">
-                {project.images.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToImage(index)}
-                    className={`relative h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      index === currentImageIndex 
-                        ? 'border-white scale-105' 
-                        : 'border-white/20 hover:border-white/40'
-                    }`}
-                  >
-                    <img
-                      src={image}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
+              <div className="relative">
+                {/* Left Arrow */}
+                <button
+                  onClick={() => scrollThumbnails('left')}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
+                  aria-label="Scroll thumbnails left"
+                >
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                  </svg>
+                </button>
+
+                {/* Thumbnail Container */}
+                <div 
+                  ref={thumbnailsRef}
+                  className="flex gap-3 overflow-x-auto scrollbar-hide px-10 py-2"
+                >
+                  {project.images.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToImage(index)}
+                      className={`relative h-20 w-20 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${
+                        index === currentImageIndex 
+                          ? 'border-white scale-105' 
+                          : 'border-white/20 hover:border-white/40'
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+
+                {/* Right Arrow */}
+                <button
+                  onClick={() => scrollThumbnails('right')}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
+                  aria-label="Scroll thumbnails right"
+                >
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
@@ -328,7 +355,7 @@ const ProjectDetails: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
           {/* Technologies Used */}
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-4 font-display">Technologies Used</h2>
+            <h2 className="text-2xl font-bold text-white font-display force-mb-8" style={{ marginBottom: '2rem' }}>Technologies Used</h2>
             <div className="grid grid-cols-2 gap-4">
               {project.technologies.map((tech, index) => (
                 <div key={index} className="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
@@ -358,34 +385,36 @@ const ProjectDetails: React.FC = () => {
           </div>
         </div>
 
-        {/* Challenges & Solutions */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-          {/* Challenges */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-4 font-display">Challenges</h2>
-            <ul className="space-y-3">
-              {project.challenges.map((challenge, index) => (
-                <li key={index} className="flex items-start gap-3 text-white/70">
-                  <div className="w-2 h-2 bg-red-400 rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="leading-relaxed">{challenge}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-4 font-display">Solutions</h2>
-            <ul className="space-y-3">
-              {project.solutions?.map((solution, index) => (
-                <li key={index} className="flex items-start gap-3 text-white/70">
-                  <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="leading-relaxed">{solution}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+                 {/* Challenges & Solutions - Only show if project has challenges and solutions */}
+         {project.challenges && project.solutions && (
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+             {/* Challenges */}
+             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+               <h2 className="text-2xl font-bold text-white mb-4 font-display">Challenges</h2>
+               <ul className="space-y-3">
+                 {project.challenges.map((challenge, index) => (
+                   <li key={index} className="flex items-start gap-3 text-white/70">
+                     <div className="w-2 h-2 bg-red-400 rounded-full flex-shrink-0 mt-2"></div>
+                     <span className="leading-relaxed">{challenge}</span>
+                   </li>
+                 ))}
+               </ul>
+             </div>
+   
+             {/* Solutions */}
+             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+               <h2 className="text-2xl font-bold text-white mb-4 font-display">Solutions</h2>
+               <ul className="space-y-3">
+                 {project.solutions.map((solution, index) => (
+                   <li key={index} className="flex items-start gap-3 text-white/70">
+                     <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0 mt-2"></div>
+                     <span className="leading-relaxed">{solution}</span>
+                   </li>
+                 ))}
+               </ul>
+             </div>
+           </div>
+         )}
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
