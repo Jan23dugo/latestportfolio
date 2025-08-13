@@ -17,11 +17,12 @@ export interface AssetModule {
 }
 
 // Load all assets using import.meta.glob
-const iconModules = import.meta.glob('./icons/*.svg', { eager: true, as: 'url' });
-const projectModules = import.meta.glob('./projects/**/*.png', { eager: true, as: 'url' });
-const profileModules = import.meta.glob('./profile/*.png', { eager: true, as: 'url' });
-const fontModules = import.meta.glob('./fonts/*.woff', { eager: true, as: 'url' });
-const svgModules = import.meta.glob('./*.svg', { eager: true, as: 'url' });
+const iconModules = import.meta.glob<string>('./icons/*.svg', { eager: true, query: '?url', import: 'default' });
+const projectModules = import.meta.glob<string>('./projects/**/*.png', { eager: true, query: '?url', import: 'default' });
+const profileModules = import.meta.glob<string>('./profile/*.png', { eager: true, query: '?url', import: 'default' });
+const fontModules = import.meta.glob<string>('./fonts/*.woff', { eager: true, query: '?url', import: 'default' });
+const svgModules = import.meta.glob<string>('./*.svg', { eager: true, query: '?url', import: 'default' });
+const resumeModules = import.meta.glob<string>('./resume/*.pdf', { eager: true, query: '?url', import: 'default' });
 
 // Helper function to extract filename without extension
 const getAssetName = (path: string): string => {
@@ -44,6 +45,7 @@ export const icons = organizeModules(iconModules);
 export const fonts = organizeModules(fontModules);
 export const profile = organizeModules(profileModules);
 export const svgAssets = organizeModules(svgModules);
+export const resume = organizeModules(resumeModules);
 
 // Organize project images by project folder
 export const projects = {
@@ -138,7 +140,10 @@ export const commonAssets = {
   // Fonts
   senRegular: fonts['Sen-Regular'],
   senBold: fonts['Sen-Bold'],
-  senExtraBold: fonts['Sen-ExtraBold']
+  senExtraBold: fonts['Sen-ExtraBold'],
+
+  // Resume
+  resumePdf: resume.resume || resume['Jan-Lloyd-Dugo-Resume'] || Object.values(resume)[0] // Flexible resume naming
 };
 
 // Helper function to get tech stack by names
@@ -159,6 +164,7 @@ export const allAssets = {
   profile,
   fonts,
   svgAssets,
+  resume,
   techStack,
   commonAssets
 };

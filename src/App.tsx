@@ -3,7 +3,9 @@ import Navbar from './components/navbar';
 import Hero from './components/hero';
 import TechStack from './components/tech_stack';
 import Project from './components/project';
+import Contact from './components/contact';
 import ProjectDetails from './components/project-details';
+import Footer from './components/footer';
 
 // Home page component
 function HomePage() {
@@ -13,6 +15,8 @@ function HomePage() {
       <Hero />
       <TechStack />
       <Project />
+      <Contact />
+      <Footer />
     </div>
   );
 }

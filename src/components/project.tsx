@@ -20,7 +20,11 @@ const projectsData = [
       projects.streams.homepage,
       projects.streams.studentWelcome,
       projects.streams.adminLogin,
-      projects.streams.studentLogin
+      projects.streams.studentLogin,
+      projects.streams.questionbank,
+      projects.streams.exam,
+      projects.streams.applicants,
+      projects.streams.announcements
     ]
   },
   {
@@ -47,19 +51,21 @@ const projectsData = [
   {
     id: 3,
     title: "Promotional Game Website",
-    description: "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Includes project tracking, deadline management, and progress analytics.",
+    description: "This project is a promotional website for our game, featuring sections for How to Play, Game Features, Downloads, News & Updates, and Support. It includes a backend admin panel for content management and a support ticket system where players can submit inquiries or reports, with admins able to respond directly. The site serves as the central hub for game information, updates, and player assistance.",
     technologies: [
-      techStack.react,
-      techStack.typescript,
-      techStack.tailwind,
-      techStack.react // Using react icon as placeholder for Firebase until you add a Firebase icon
+      techStack.html,
+      techStack.css,
+      techStack.javascript,
+      techStack.php,
+      techStack.mysql
     ],
     liveUrl: "#",
     images: [
-      projects.streams.homepage,
-      projects.streams.studentWelcome,
-      projects.streams.adminLogin,
-      projects.streams.studentLogin
+      projects.ojt.homepage,
+      projects.ojt.aboutSection,
+      projects.ojt.gameFeatures,
+      projects.ojt.newsSection,
+      
     ]
   }
 ];
@@ -98,6 +104,7 @@ const Project: React.FC = () => {
   }, [currentProject, currentProjectData.images.length]);
 
   return (
+    
     <section
       id="projects"
       className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 md:px-12 py-16"

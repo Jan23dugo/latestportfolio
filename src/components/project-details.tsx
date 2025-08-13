@@ -39,16 +39,16 @@ const projectsData = [
        "Centralized question bank for efficient exam creation and reusability."
      ],
     liveUrl: "https://pupstreams.website/",
-    githubUrl: "#",
     images: [
       projects.streams.homepage,
       projects.streams.studentWelcome,
       projects.streams.adminLogin,
-      projects.streams.studentLogin
-    ],
-    duration: "3 months",
-    role: "Full-Stack Developer",
-    teamSize: "Capstone Project"
+      projects.streams.studentLogin,
+      projects.streams.questionbank,
+      projects.streams.exam,
+      projects.streams.applicants,
+      projects.streams.announcement
+    ]
   },
   {
     id: 2,
@@ -73,8 +73,7 @@ const projectsData = [
       "Dynamic rendering — portfolio content updates instantly after edits.",
             "Authentication — secure owner-only access to admin tools."
      ],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://janavirtuales.vercel.app/",
     images: [
       projects.web_portfolio.homepage,
       projects.web_portfolio.adminLogin,
@@ -86,62 +85,45 @@ const projectsData = [
       projects.web_portfolio.resultsSection,
       projects.web_portfolio.toolsSection,
       projects.web_portfolio.homeContent,
-      
-      
-
-
-    ],
-    duration: "2 months",
-    role: "Full-Stack Developer",
-    teamSize: "Solo Project"
+    ]
   },
   {
     id: 3,
     title: "Promotional Game Website",
     overview: {
-      role: "Frontend Developer",
-      timeline: "2024",
+      role: "Full Stack Developer",
+      timeline: "2025",
       status: "Completed",
-      description: "An engaging promotional website designed to showcase and promote a mobile game, featuring interactive elements, smooth animations, and real-time user engagement tracking. The project combines creative design with functional features to create an immersive user experience."
+      description: "This project is a promotional website created to showcase our game project, featuring dedicated sections for How to Play, Game Features, Downloads, News & Updates, and Support. The platform includes a backend admin panel that allows administrators to manage all website content, ensuring the latest information is always available to players. A built-in support ticket system enables users to submit inquiries or report issues, with admins able to directly reply to and track each ticket for efficient resolution. Designed for both engagement and functionality, the site serves as the central hub for players to learn about the game, stay updated on new developments, and access assistance when needed."
     },
     technologies: [
-      techStack.react,
-      techStack.typescript,
-      techStack.tailwind,
+      techStack.html,
+      techStack.css,
+      techStack.javascript,
+      techStack.php,
+      techStack.mysql
     ],
     features: [
-      "Interactive Game Previews",
-      "User Registration System",
-      "Real-time Statistics",
-      "Social Media Integration",
-      "Newsletter Subscription",
-      "Analytics Dashboard",
-      "Mobile Gaming Experience",
-      "Conversion Optimization"
+      "How to Play Guide – Step-by-step instructions for new players.",
+      "Game Features Showcase – Highlights unique gameplay mechanics and visuals.",
+      "Download Section – Provides official game installers and updates.",
+      "News & Updates – Latest announcements, patch notes, and events.",
+      "Support Ticket System – Players can submit issues or inquiries directly.n",
+      "Admin Panel – Manage content, publish updates, and respond to support tickets."
     ],
-         challenges: [
-       "Creating engaging interactive elements for game promotion",
-       "Implementing real-time statistics and user tracking",
-       "Optimizing for mobile gaming audience",
-       "Integrating with multiple social media platforms"
-     ],
-     solutions: [
-       "Built interactive game previews with smooth animations and particle effects",
-       "Implemented real-time analytics dashboard with live user tracking",
-       "Optimized for mobile devices with touch-friendly controls and responsive design",
-       "Integrated social media APIs for seamless sharing and community features"
-     ],
     liveUrl: "#",
-    githubUrl: "#",
     images: [
-      projects.streams.homepage,
-      projects.streams.studentWelcome,
-      projects.streams.adminLogin,
-      projects.streams.studentLogin
-    ],
-    duration: "1.5 months",
-    role: "Frontend Developer",
-    teamSize: "3 developers"
+      projects.ojt.homepage,
+      projects.ojt.aboutSection,
+      projects.ojt.gameFeatures,
+      projects.ojt.newsSection,
+      projects.ojt.dashboard,
+      projects.ojt.adminLogin,
+      projects.ojt.contentManagement,
+      projects.ojt.downloadManagement,
+      projects.ojt.newsManagement,
+      projects.ojt.support,
+    ]
   }
 ];
 
@@ -418,24 +400,20 @@ const ProjectDetails: React.FC = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={project.liveUrl}
-            className="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-8 py-3 rounded-lg transition-colors group"
-          >
-            View Live Site
-            <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-              ↗
-            </span>
-          </a>
-          <a
-            href={project.githubUrl}
-            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3 rounded-lg border border-white/20 transition-colors group"
-          >
-            View Source Code
-            <svg className="w-5 h-5 transform group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
+          {/* Only show View Live Site button if there's a valid URL */}
+          {project.liveUrl && project.liveUrl !== '#' && project.liveUrl !== '' && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#CD853F] hover:bg-[#CD853F]/80 text-black font-semibold px-8 py-3 rounded-lg transition-colors group"
+            >
+              View Live Site
+              <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                ↗
+              </span>
+            </a>
+          )}
         </div>
       </div>
     </div>
